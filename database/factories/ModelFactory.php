@@ -14,6 +14,7 @@
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
-        'email' => $faker->email,
+        'email' => $faker->unique()->email,
+        'password' => password_hash('12345', PASSWORD_BCRYPT),
     ];
 });
